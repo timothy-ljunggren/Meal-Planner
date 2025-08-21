@@ -1,0 +1,990 @@
+[
+    {
+        "name": "Bulgur Salat",
+        "emoji": "🥗",
+        "cookTime": "20 min",
+        "servings": "4",
+        "difficulty": 1,
+        "tags": ["Healthy", "Vegetarian", "Quick"],
+        "ingredients": [
+            {
+                "name": "Bulgur",
+                "amount": 500,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Tomaten",
+                "amount": 300,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Gurke",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Petersilie",
+                "amount": 50,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Zitronensaft",
+                "amount": 50,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Kartoffelwürfel mit Tomate, Avocado, Mozzarella",
+        "emoji": "🥔",
+        "cookTime": "35 min",
+        "servings": "3",
+        "difficulty": 2,
+        "tags": ["Comfort Food", "Vegetarian"],
+        "ingredients": [
+            {
+                "name": "Kartoffeln",
+                "amount": 600,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Avocado",
+                "amount": 150,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Mozzarella",
+                "amount": 125,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Orzo mit Pilzen und Tomaten",
+        "emoji": "🍝",
+        "cookTime": "25 min",
+        "servings": "2-3",
+        "difficulty": 2,
+        "tags": ["Italian", "Pasta", "Vegetarian"],
+        "ingredients": [
+            {
+                "name": "Orzo",
+                "amount": 500,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Champignons",
+                "amount": 300,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type":"Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            }
+        ]
+    },
+    {
+        "name": "Nudeln mit Tomaten-Sahne-Sauce",
+        "ingredients": [
+            {                
+                "name": "Nudeln",
+                "amount": 500,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Tomatenmark",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Kochsahne",
+                "amount": 200,
+                "unit": "ml",
+                "type": "Milchprodukte"
+            },
+            {
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type":"Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Burger mit Pommes",
+        "ingredients": [
+            {               
+                "name": "Burgerbrötchen",
+                "amount": 4,
+                "unit": "Stück",
+                "type": "Brot"
+            },
+            {
+                "name": "Burgerpatties",
+                "amount": 4,
+                "unit": "Stück",
+                "type": "Brot"
+            },
+            {               
+                "name": "Käse",
+                "amount": 4,
+                "unit": "Scheiben",
+                "type": "Milchprodukte"
+            },
+            {                
+                "name": "Salat",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Pommes",
+                "amount": 500,
+                "unit": "g",
+                "type": "Tiefkühl"
+            },
+            {                
+                "name": "Ketchup",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Mayonnaise",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {               
+                "name": "Öl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Paprika",
+                "amount": 2,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            }
+        ]
+    },
+    {
+        "name": "Bratkartoffeln mit Rührei",
+        "ingredients": [
+            {                
+                "name": "Kartoffeln",
+                "amount": 600,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Eier",
+                "amount": 6,
+                "unit": "Stück",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Öl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Wraps",
+        "ingredients": [
+            {
+                "name": "Wraps",
+                "amount": 6,
+                "unit": "Stück",
+                "type": "Brot"
+            },
+            {
+                "name": "Fleischersatzprodukt",
+                "amount": 200,
+                "unit": "g",
+                "type":"Milchprodukte"
+            },
+            {
+                "name": "Salat",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Gurke",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Joghurt",
+                "amount": 150,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Lasagne",
+        "ingredients": [
+            {                
+                "name": "Lasagneplatten",
+                "amount": 250,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Hackfleisch Ersatz",
+                "amount": 500,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {                
+                "name": "Gehackte Tomaten",
+                "amount": 400,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Käse",
+                "amount": 200,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {               
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Oregano",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Chickpea Curry mit Reis",
+        "ingredients": [
+            {
+                "name": "Kichererbsen",
+                "amount": 400,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Reis",
+                "amount": 300,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Kokosmilch",
+                "amount": 400,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Ingwer",
+                "amount": 10,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Currypulver",
+                "amount": 10,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Fladenbrot mit Tomate und Käse",
+        "ingredients": [
+            {                
+                "name": "Fladenbrot",
+                "amount": 2,
+                "unit": "Stück",
+                "type": "Brot"
+            },
+            {                
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Käse",
+                "amount": 150,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {                
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type":"Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Nudeln mit Brokkoli und Sahnesauce",
+        "ingredients": [
+            {
+                "name": "Nudeln",
+                "amount": 500,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Brokkoli",
+                "amount": 300,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Kochsahne",
+                "amount": 200,
+                "unit": "ml",
+                "type": "Milchprodukte"
+            },
+            {
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Mit Ei angebratene gefüllte Wraps",
+        "ingredients": [
+            {
+                "name": "Wraps",
+                "amount": 4,
+                "unit": "Stück",
+                "type": "Brot"
+            },
+            {
+                "name": "Fleischersatzprodukt",
+                "amount": 200,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {
+                "name": "Eier",
+                "amount": 4,
+                "unit": "Stück",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salat",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Gurke",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Asia-Pfanne mit Brokkoli und Hähnchen",
+        "ingredients": [
+            {
+                "name": "Spaghetti",
+                "amount": 500,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Hähnchen Ersatzprodukt",
+                "amount": 400,
+                "unit": "g",
+                "type":"Milchprodukte"
+            },
+            {
+                "name": "Brokkoli",
+                "amount": 300,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Paprika",
+                "amount": 200,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Zwiebel",
+                "amount": 100,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Sojasauce",
+                "amount": 50,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Ingwer",
+                "amount": 10,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Knoblauch",
+                "amount": 10,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {                
+                "name": "Sesamöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Sommerrollen mit Erdnussdip",
+        "ingredients": [
+            {
+                "name": "Reispapier",
+                "amount": 10,
+                "unit": "Blätter",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Reisnudeln",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Tofu",
+                "amount": 200,
+                "unit": "g",
+                "type": "Milchprodukte"
+            },
+            {               
+                "name": "Paprika",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Gurke",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Karotten",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Salat",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {                
+                "name": "Koriander",
+                "amount": 50,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Erdnussbutter",
+                "amount": 100,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Sojasauce",
+                "amount": 50,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Limettensaft",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Honig",
+                "amount": 20,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Sesamöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+        "name": "Korean Pancakes",
+        "ingredients": [
+            {
+                "name": "Mehl",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Frühlingszwiebeln",
+                "amount": 100,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Karotten",
+                "amount": 100,
+                "unit": "g",
+                "type":"Obst & Gemüse"
+            },
+            {
+                "name": "Ei",
+                "amount": 1,
+                "unit": "Stück",
+                "type": "Trocken"
+            },
+            {
+                "name": "Sojasauce",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Sesamöl",
+                "amount": 20,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Pfeffer",
+                "amount": 2,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    },
+    {
+            "name": "Quinoa-Salat",
+            "ingredients": [
+                {
+                    "name": "Quinoa",
+                    "amount": 200,
+                    "unit": "g",
+                    "type": "Trocken"
+                },
+                {
+                    "name": "Kidneybohnen",
+                    "amount": 200,
+                    "unit": "g",
+                    "type": "Trocken"
+                },
+                {
+                    "name": "Mais",
+                    "amount": 150,
+                    "unit": "g",
+                    "type": "Trocken"
+                },
+                {
+                    "name": "Cherry-Tomaten",
+                    "amount": 200,
+                    "unit": "g",
+                    "type": "Obst & Gemüse"
+                },
+                {
+                    "name": "Paprika",
+                    "amount": 150,
+                    "unit": "g",
+                    "type": "Obst & Gemüse"
+                },
+                {
+                    "name": "Gurke",
+                    "amount": 150,
+                    "unit": "g",
+                    "type": "Obst & Gemüse"
+                },
+                {
+                    "name": "Petersilie",
+                    "amount": 50,
+                    "unit": "g",
+                    "type":"Obst & Gemüse"
+                },
+                {
+                    "name": "Zitronensaft",
+                    "amount": 50,
+                    "unit": "ml",
+                    "type": "Trocken"
+                },
+                {
+                    "name": "Olivenöl",
+                    "amount": 30,
+                    "unit": "ml",
+                    "type": "Trocken"
+                },
+                {
+                    "name": "Salz",
+                    "amount": 5,
+                    "unit": "g",
+                    "type": "Trocken"
+                }
+            ]
+    },
+    {
+        "name": "Grießschnitten",
+        "ingredients": [
+            {
+                "name": "Grieß",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Milch",
+                "amount": 500,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {                
+                "name": "Zucker",
+                "amount": 50,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Apfelmuß",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
+    }
+]
