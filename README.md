@@ -4,15 +4,28 @@ A modern, mobile‑first Progressive Web App (PWA) for planning weekly meals, cu
 
 ---
 
+## 🚀 Executive Snapshot
+
+| Dimension | Highlight |
+|-----------|-----------|
+| Product Value | Reduces decision fatigue; one‑click weekly meal plan + dynamic shopping list |
+| Architecture | Pure client (React + Tailwind) with localStorage persistence & offline SW |
+| Data Strategy | Deterministic merging of seed + user + preference layers |
+| Algorithms | Weighted favorite-based random planner with uniqueness & variety balance |
+| UX Focus | Mobile-first, installable PWA, semantic color system, animated micro‑interactions |
+| Extensibility | Clean separation: pages (flows) vs components (UI primitives) vs data (seed) |
+
+---
+
 ## ✨ Why Meal Planner?
 
 Busy week? Decision fatigue? Meal Planner turns “What should we cook?” into a 30‑second flow:
 1. Add or browse recipes.
-2. Auto‑generate a weekly plan prioritizing your liked meals.
+2. Auto‑generate a weekly plan (weighted toward what you actually like).
 3. Get a consolidated shopping list grouped by ingredient type.
-4. Check off items while shopping – progress is persisted.
+4. Check off items while shopping – progress persists offline.
 
-All data (recipes you add, preferences, weekly plan, checked items) lives in your browser via `localStorage`, so it’s private and lightning fast.
+All data (recipes you add, preferences, weekly plan, checked items) lives in your browser via `localStorage`, so it’s private and instant.
 
 ---
 
@@ -21,12 +34,12 @@ All data (recipes you add, preferences, weekly plan, checked items) lives in you
 | Category | Highlights |
 |----------|------------|
 | Recipes | Curated seed data + user‑created recipes via modal UI |
-| Planner | Smart weekly generator with uniqueness + liked recipe prioritization |
-| Shopping List | Aggregates duplicate ingredients, groups by type, progress bar |
-| Offline / PWA | Installable, responsive, offline navigation fallback |
-| UI / Styling | Tailwind CSS custom design tokens, soft glass & gradients |
-| Persistence | `localStorage` for user recipes, plan, liked meals, list progress |
-| DX | Clear modular components, simple extension model |
+| Planner | Weighted favorite algorithm (likes vs variety) + uniqueness per week |
+| Shopping List | Aggregates & sums ingredients, grouped by category, progress bar |
+| Offline / PWA | Installable, responsive, navigation fallback, icon set |
+| UI / Styling | Tailwind design tokens, gradients, glass surfaces, subtle motion |
+| Persistence | `localStorage` for all user state (no backend) |
+| DX | Modular structure, intuitive extension points |
 
 ---
 
@@ -34,16 +47,16 @@ All data (recipes you add, preferences, weekly plan, checked items) lives in you
 
 ```
 src/
-  components/        Reusable UI building blocks
-  pages/             Route-level views (Recipes, Plan, List)
-  modals/            Overlay interactions (Add Recipe)
-  data/              Static seed data (meals.json)
-  index.js           App entry + SW registration
+  components/        UI primitives (cards, buttons, layout, nav)
+  pages/             Route-level workflows (Recipes, Plan, List)
+  modals/            Overlays (AddMealModal)
+  data/              Seed dataset (meals.json)
   App.js             Router + layout shell
-  styles (Tailwind)  Design system via tailwind.config.js
+  index.js           Entry + service worker registration
+  tailwind.config.js Design tokens / theme extensions
 public/
-  manifest.json      PWA metadata (scoped to /dev/meal-planner/)
-  service-worker.js  Runtime cache & offline logic (scoped variant)
+  manifest.json      PWA metadata
+  service-worker.js  Offline caching (scoped)
 ```
 
 ### Key Files & Components
@@ -53,7 +66,7 @@ public/
 - Data: [`meals.json`](src/data/meals.json)
 - Styling System: [`tailwind.config.js`](tailwind.config.js), [`index.css`](src/index.css)
 - PWA Layer: [`service-worker.js`](public/service-worker.js) + registration in [`index.js`](src/index.js)
-- Utility / Perf: [`reportWebVitals`](src/reportWebVitals.js)
+- Perf Utility: [`reportWebVitals`](src/reportWebVitals.js)
 
 ---
 
@@ -61,14 +74,14 @@ public/
 
 | Layer | Stack |
 |-------|-------|
-| Framework | React 19 (`createRoot` API) |
+| Framework | React 19 (`createRoot`) |
 | Routing | React Router v7 (`<Router basename="/dev/meal-planner">`) |
-| Styling | Tailwind CSS with custom tokens (primary, secondary, surface, semantic colors) |
-| Icons | `lucide-react` (tree‑shakable icons) |
-| Persistence | Browser `localStorage` (recipes, weeklyPlan, checkedItems, likedMeals) |
+| Styling | Tailwind CSS (custom theme tokens + animations) |
+| Icons | `lucide-react` |
+| Persistence | Browser `localStorage` |
 | PWA | Custom Service Worker + Web App Manifest |
-| Build Tooling | CRA (React Scripts 5) |
-| Animations | Tailwind keyframes (fade, bounce, pulse, scale) |
+| Build Tooling | CRA (react-scripts 5) |
+| Animations | Tailwind + custom keyframes (fade, pulse, bounce, scale) |
 
 ---
 
@@ -86,78 +99,86 @@ interface Ingredient {
 interface Meal {
   name: string
   emoji: string
-  cookTime: string          // e.g. "20 min"
-  servings: string          // e.g. "2-3"
+  cookTime: string
+  servings: string
   difficulty: 1 | 2 | 3
   tags: string[]
   ingredients: Ingredient[]
 }
 ```
 
-User-created meals (from [`AddMealModal`](src/modals/AddMealModal.js)) are appended to the base dataset and stored in `localStorage.userMeals`.
+User-created meals (from [`AddMealModal`](src/modals/AddMealModal.js)) extend the base dataset and persist in `localStorage.userMeals`.
 
 ---
 
 ## 🧠 Domain Logic Highlights
 
-### Weekly Plan Generation
-Defined inside [`Plan`](src/pages/Plan.js):
-1. Collect available meals (seed + user).
-2. Read liked meals from `localStorage.likedMeals` (if any).
-3. For each weekday, attempt to assign an unused liked meal first.
-4. Fallback: choose a random unused meal.
-5. Persist structure `{ Monday: Meal, Tuesday: Meal, ... }` to `localStorage.weeklyPlan`.
+### Weighted Weekly Plan Generation
+Implemented in [`Plan`](src/pages/Plan.js):
+- Data Sources: Seed meals + user meals (`userMeals`) merged into an available pool.
+- Preferences Layer: Liked meals (`likedMeals`) influence selection.
+- Algorithm (weekly batch):
+  - For each day: 75% probability to pick from unused liked meals (if any), else from remaining pool for variety.
+  - Guarantees no duplicate meal name in the same generated week (greedy uniqueness).
+  - Fallback gracefully reuses liked meals if pool exhausted.
+- Single-Day Change:
+  - `getRandomUnusedMeal` uses a 70% probability weighting toward liked & unused meals.
+- Persistence: Structure `{ Monday: Meal, ... }` saved to `localStorage.weeklyPlan`.
 
 ### Shopping List Aggregation
-Implemented by `processIngredients` inside [`List`](src/pages/List.js):
-1. Flatten all ingredients from the current weekly plan.
+In [`List`](src/pages/List.js):
+1. Flatten all meal ingredients from current plan.
 2. Merge identical `(name + unit)` pairs by summing `amount`.
-3. Group by `type` (ordered by a semantic priority array).
-4. Render collapsible sections with persistent checkbox states stored in `localStorage.checkedItems`.
+3. Group by `type` (ordered priority: produce → bread → chilled → dry → frozen → other).
+4. Persist checkbox state in `localStorage.checkedItems`.
+5. Progress bar reflects completion ratio.
 
-### Form Handling / Validation
-[`AddMealModal`](src/modals/AddMealModal.js) ensures:
-- At least one ingredient with valid numeric amount.
-- Difficulty selection (1–3).
-- Controlled inputs; reset on save or cancel.
+### Like / Preference System
+In [`MealCard`](src/components/MealCard.js):
+- Toggles membership in `localStorage.likedMeals`.
+- Plan logic weights selection using this evolving preference signal.
 
-### UI State & Persistence
-| Key | Stored Under | Source |
-|-----|--------------|--------|
-| User Recipes | `userMeals` | Created via modal |
-| Weekly Plan | `weeklyPlan` | Generated or manually adjusted |
-| Shopping Progress | `checkedItems` | Toggle states per ingredient |
-| Liked Meals (future hook) | `likedMeals` | (Placeholder usage in planner logic) |
+### Form Validation
+[`AddMealModal`](src/modals/AddMealModal.js):
+- Requires name + ≥1 ingredient with numeric amount.
+- Controlled form resets after save/cancel.
+- Preview panel summarizes recipe before commit.
+
+### UI State & Persistence Map
+| Key | Storage Key | Source |
+|-----|-------------|--------|
+| User Recipes | `userMeals` | Modal submissions |
+| Weekly Plan | `weeklyPlan` | Weighted generator or manual edits |
+| Liked Meals | `likedMeals` | Meal card heart toggle |
+| Shopping Progress | `checkedItems` | List check toggles |
 
 ---
 
 ## 📱 PWA & Offline Capability
 
-- Manifest: [`public/manifest.json`](public/manifest.json) (scoped at `/dev/meal-planner/` for GitHub Pages / subpath deployment).
-- Service Worker: [`public/service-worker.js`](public/service-worker.js) caches shell + static assets under `CACHE_NAME = 'meal-planner-v1'`.
-- Registration: Performed in [`index.js`](src/index.js) with explicit scope:
-  ```js
-  navigator.serviceWorker.register('/dev/meal-planner/service-worker.js', { scope: '/dev/meal-planner/' })
-  ```
-- Offline Strategy:
-  - Navigation requests: fallback to cached `index.html`.
-  - Cache-first for same-origin, scoped asset requests.
-- Install Prompt: `beforeinstallprompt` captured in [`App`](src/App.js) to allow future custom install UI.
+- Manifest: [`public/manifest.json`](public/manifest.json) scoped to `/dev/meal-planner/`.
+- Service Worker: [`public/service-worker.js`](public/service-worker.js) caches shell + static assets (`CACHE_NAME = 'meal-planner-v1'`).
+- Registration: In [`index.js`](src/index.js) with explicit `scope`.
+- Strategy:
+  - Navigation fallback → cached `index.html`.
+  - Cache-first for same-origin, scoped assets.
+  - Seamless offline browsing of previously loaded UI.
 
 ---
 
 ## 🎨 Design System
 
-Tailwind is extended in [`tailwind.config.js`](tailwind.config.js):
-- Semantic palettes: `primary`, `secondary`, `surface`, `text`, `success`, `warning`, `error`.
-- Custom animations (`fadeIn`, `bounceGentle`, `pulseSoft`, etc.).
-- Utility-driven gradients (`bg-gradient-primary`, `text-gradient-secondary`, etc. in [`index.css`](src/index.css)).
+Tailwind extension in [`tailwind.config.js`](tailwind.config.js):
+- Semantic color families: `primary`, `secondary`, `surface`, `text`, status palettes.
+- Custom shadows (soft, glow), spacing, radii, animation keyframes.
+- Utility “tokens” consumed via semantic classnames in components.
+Additional utilities & gradients in [`index.css`](src/index.css).
 
 ---
 
 ## 🧭 Routing
 
-Defined in [`App`](src/App.js) with `<Router basename="/dev/meal-planner">`:
+Declared in [`App`](src/App.js):
 | Path | View |
 |------|------|
 | `/recipes` | Recipe collection + search ([`Recipes`](src/pages/Recipes.js)) |
@@ -169,46 +190,47 @@ Defined in [`App`](src/App.js) with `<Router basename="/dev/meal-planner">`:
 
 ## 🔍 Search
 
-Implemented in [`MealGrid`](src/components/MealGrid.js):
-- Case-insensitive search over `meal.name` and `meal.tags`.
-- Animated UI with focus states and debounce‑free instant filtering (sufficient for current data scale).
+[`MealGrid`](src/components/MealGrid.js):
+- Instant (no debounce needed at current scale).
+- Matches `name` or any tag (case-insensitive).
+- Animated empty & result states.
 
 ---
 
-## ✅ Accessibility & UX Considerations
+## ✅ Accessibility & UX
 
-- Large tap targets on mobile (floating action button, bottom nav in [`Navbar`](src/components/Navbar.js)).
-- High-contrast gradients and semantic coloring.
-- Motion kept subtle; prefers short durations (200–800ms).
-- Ingredient completion state reflected with crossed text + progress bar.
+- Large mobile targets (floating action button, bottom nav).
+- High contrast semantic colors.
+- Motion subtle; durations ≤ 800ms.
+- Progress & state feedback (planning overlay, list completion).
 
 ---
 
 ## 🛠️ Getting Started
 
-### Prerequisites
-- Node 18+ (recommended)
-- npm 9+
+Prerequisites:
+```
+Node 18+
+npm 9+
+```
 
-### Install
+Install:
 ```bash
 npm install
 ```
 
-### Run Dev Server
+Dev:
 ```bash
 npm start
 ```
-Runs at `http://localhost:3000/dev/meal-planner` because of `homepage` + `basename`. If CRA auto-opens root, append `/dev/meal-planner`.
+Open: `http://localhost:3000/dev/meal-planner`
 
-### Build Production
+Build:
 ```bash
 npm run build
 ```
-Outputs to `build/` (ignored by Git). Artifacts reference scoped assets (important for subpath hosting).
 
-### Preview Build Locally
-Serve `build/` at a root that preserves the `/dev/meal-planner` path segment (e.g. using `serve`):
+Preview:
 ```bash
 npx serve -s build
 ```
@@ -217,44 +239,45 @@ npx serve -s build
 
 ## 🌐 Deployment Notes
 
-Because `package.json.homepage` = `/dev/meal-planner`:
-- All asset URLs are generated relative to that subpath.
-- If deploying at real root `/`, remove or adjust `homepage` and:
-  - Update `<Router basename>` in [`App`](src/App.js).
-  - Update SW registration scope & path in [`index.js`](src/index.js).
-  - Modify `start_url` / `scope` in [`manifest.json`](public/manifest.json).
+If deploying at root `/` instead of `/dev/meal-planner`:
+1. Remove/adjust `"homepage"` in [`package.json`](package.json).
+2. Change `<Router basename>` in [`App`](src/App.js).
+3. Update SW registration path in [`index.js`](src/index.js).
+4. Adjust `start_url`, `scope` in [`public/manifest.json`](public/manifest.json).
+5. (Optional) Simplify service worker `BASE_PATH`.
 
 ---
 
 ## 🧪 Testing
 
-Basic CRA test harness:
-- Jest + React Testing Library preconfigured.
-- Sample test: [`App.test.js`](src/App.test.js).
-Run:
+CRA default harness (Jest + RTL):
 ```bash
 npm test
 ```
+Example: [`App.test.js`](src/App.test.js).
 
-(Enhancement suggestion: Add tests for planner logic & ingredient aggregation.)
+Suggested future tests:
+- Weighted selection distribution (stochastic properties).
+- Ingredient aggregation merging logic.
+- Persistence round‑trip (plan → list → reload).
 
 ---
 
 ## 🔧 Extending the App
 
-| Goal | Where to Change |
-|------|-----------------|
-| Add nutrition fields | Update model in [`AddMealModal`](src/modals/AddMealModal.js) & rendering in [`MealCard`](src/components/MealCard.js) |
-| Add liking/favoriting UI | Extend [`MealCard`](src/components/MealCard.js) + persist to `likedMeals` |
-| Add export/import | Create utility (new file) to serialize `userMeals` + `weeklyPlan` |
-| Multi-meal per day | Adjust `weeklyPlan` structure in [`Plan`](src/pages/Plan.js) and shopping aggregation logic in [`List`](src/pages/List.js) |
-| Internationalization | Externalize strings from pages & components into a locale module |
+| Goal | Change Points |
+|------|---------------|
+| Nutrition data | Extend model in [`AddMealModal`](src/modals/AddMealModal.js) + render in [`MealCard`](src/components/MealCard.js) |
+| Adaptive weighting | Adjust probabilities in [`Plan`](src/pages/Plan.js) (e.g. dynamic based on recency) |
+| Export / import | New utility to serialize all `localStorage` keys |
+| Multi meals/day | Change `weeklyPlan` value → array; update planner + list aggregation |
+| i18n | Externalize literals into a locale map |
+| Dark mode | Add `dark:` theme tokens + toggle persisted in storage |
 
 ---
 
 ## 🧹 Local Data Maintenance
 
-Clear user data from DevTools console if needed:
 ```js
 localStorage.removeItem('userMeals');
 localStorage.removeItem('weeklyPlan');
@@ -266,35 +289,36 @@ localStorage.removeItem('likedMeals');
 
 ## 🔐 Privacy
 
-All data is stored locally (`localStorage`). No network calls (even though `axios` is listed as a dependency, it is currently unused – safe to remove if not needed).
+All data stays local (`localStorage`). No network requests. `axios` dependency currently unused (removable optimization).
 
 ---
 
 ## 🗺️ Roadmap Ideas
 
-- Favorites toggle & weighting tuning
-- Drag & drop reorder within the weekly plan
-- Ingredient detail (notes, optional flags)
-- Multi-list support (e.g. Pantry vs Fresh)
-- Theme switching (dark mode via Tailwind `dark:` variants)
-- Nutrition estimation (optional, client-only)
-- Sharing / exporting a static plan snapshot
+- Fine-tune adaptive favorite weighting (decay or frequency-based)
+- Drag & drop day reordering
+- Ingredient metadata (notes / optional flag)
+- Pantry tracking & stock subtraction
+- Dark mode theme
+- Nutrition estimation (client-only)
+- Share/export static plan snapshot
+- Install prompt UI enhancement (custom CTA using stored `beforeinstallprompt` event)
 
 ---
 
 ## 🤝 Contributing
 
 1. Fork & clone
-2. Create a feature branch
-3. Keep components small & cohesive
-4. Follow Tailwind utility patterns already established
-5. Open a PR with a concise description & screenshots (if UI change)
+2. Feature branch
+3. Keep components cohesive & focused
+4. Follow existing Tailwind utility style
+5. PR with concise description + screenshots for UI changes
 
 ---
 
 ## 📄 License
 
-This project was bootstrapped with Create React App. All recipe data in [`meals.json`](src/data/meals.json) is sample/demo content. Provide attribution or replace with your own as needed.
+Bootstrapped with Create React App. Seed recipe data is demo content; replace or adapt freely.
 
 ---
 
@@ -302,21 +326,21 @@ This project was bootstrapped with Create React App. All recipe data in [`meals.
 
 - Icons: `lucide-react`
 - Framework: React
-- Styling Velocity: Tailwind
-- Inspiration: Everyday frustration choosing dinner.
+- Styling: Tailwind
+- Inspiration: Everyday friction choosing dinner.
 
 ---
 
-## 🔁 Quick Reference (Scripts)
+## 🔁 Quick Reference
 
 | Script | Purpose |
 |--------|---------|
 | `npm start` | Dev server |
 | `npm run build` | Production build |
-| `npm test` | Watch mode tests |
-| `npm run eject` | (Irreversible) expose config |
+| `npm test` | Watch tests |
+| `npm run eject` | Expose config |
 
 ---
 
-Made with fresh components, semantic design tokens, and zero backend overhead.  
-Plan smarter. Shop faster.
+Made with semantic design tokens, probabilistic planning logic, and zero backend overhead.  
+Plan smarter.
