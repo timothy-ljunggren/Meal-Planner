@@ -1,13 +1,14 @@
 /* Basic SW for CRA SPA */
-const CACHE_NAME = 'food-planner-v1';
+const CACHE_NAME = 'meal-planner-v1';
+const BASE_PATH = '/dev/meal-planner';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/favicon.ico',
-  '/logo144.png',
-  '/logo192.png',
-  '/logo512.png'
+  `${BASE_PATH}/`,
+  `${BASE_PATH}/index.html`,
+  `${BASE_PATH}/manifest.json`,
+  `${BASE_PATH}/favicon.ico`,
+  `${BASE_PATH}/logo144.png`,
+  `${BASE_PATH}/logo192.png`,
+  `${BASE_PATH}/logo512.png`
 ];
 
 self.addEventListener('install', (event) => {
@@ -35,13 +36,13 @@ self.addEventListener('fetch', (event) => {
   // Navigation requests -> serve cached index.html when offline
   if (req.mode === 'navigate') {
     event.respondWith(
-      fetch(req).catch(() => caches.match('/index.html'))
+      fetch(req).catch(() => caches.match(`${BASE_PATH}/index.html`))
     );
     return;
   }
 
   const url = new URL(req.url);
-  if (url.origin === self.location.origin) {
+  if (url.origin === self.location.origin && url.pathname.startsWith(BASE_PATH)) {
     event.respondWith(
       caches.match(req).then((cached) => {
         if (cached) return cached;

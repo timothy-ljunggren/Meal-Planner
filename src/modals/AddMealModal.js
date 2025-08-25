@@ -14,9 +14,7 @@ const AddMealModal = ({ isOpen, onClose, onSave }) => {
 
   const ingredientTypes = [
     'Obst & Gemüse',
-    'Milchprodukte', 
-    'Fleisch',
-    'Fisch',
+    'Kühlung',
     'Trocken',
     'Tiefkühl',
     'Brot'

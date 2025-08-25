@@ -19,8 +19,8 @@ reportWebVitals();
 // Add better error handling and ensure it runs on all environments
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js', {
-      scope: '/'
+    navigator.serviceWorker.register('/dev/meal-planner/service-worker.js', {
+      scope: '/dev/meal-planner/'
     })
       .then((registration) => {
         console.log('SW registered: ', registration);

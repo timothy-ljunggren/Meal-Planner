@@ -1,6 +1,6 @@
 {
-  "short_name": "Food Planner",
-  "name": "Food Planner - Plan, Cook, Enjoy",
+  "short_name": "Meal Planner",
+  "name": "Meal Planner - Plan, Cook, Enjoy",
   "description": "Plan your weekly meals and generate shopping lists",
   "icons": [
     {
@@ -27,12 +27,12 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "/dev/meal-planner/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#22c55e",
   "background_color": "#fefefe",
-  "scope": "/",
+  "scope": "/dev/meal-planner/",
   "categories": ["food", "lifestyle", "productivity"],
   "lang": "en"
 }

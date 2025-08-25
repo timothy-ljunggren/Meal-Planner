@@ -87,7 +87,7 @@
                 "name": "Mozzarella",
                 "amount": 125,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Olivenöl",
@@ -185,7 +185,7 @@
                 "name": "Kochsahne",
                 "amount": 200,
                 "unit": "ml",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Zwiebel",
@@ -237,13 +237,13 @@
                 "name": "Burgerpatties",
                 "amount": 4,
                 "unit": "Stück",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {               
                 "name": "Käse",
                 "amount": 4,
                 "unit": "Scheiben",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {                
                 "name": "Salat",
@@ -371,7 +371,7 @@
                 "name": "Fleischersatzprodukt",
                 "amount": 200,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Salat",
@@ -395,7 +395,7 @@
                 "name": "Joghurt",
                 "amount": 150,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Olivenöl",
@@ -435,7 +435,7 @@
                 "name": "Hackfleisch Ersatz",
                 "amount": 500,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {                
                 "name": "Gehackte Tomaten",
@@ -459,7 +459,7 @@
                 "name": "Käse",
                 "amount": 200,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {               
                 "name": "Olivenöl",
@@ -575,7 +575,7 @@
                 "name": "Käse",
                 "amount": 150,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {                
                 "name": "Olivenöl",
@@ -621,7 +621,7 @@
                 "name": "Kochsahne",
                 "amount": 200,
                 "unit": "ml",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Zwiebel",
@@ -673,7 +673,7 @@
                 "name": "Fleischersatzprodukt",
                 "amount": 200,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Eier",
@@ -737,7 +737,7 @@
                 "name": "Hähnchen Ersatzprodukt",
                 "amount": 400,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {
                 "name": "Brokkoli",
@@ -819,7 +819,7 @@
                 "name": "Tofu",
                 "amount": 200,
                 "unit": "g",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {               
                 "name": "Paprika",
@@ -1041,7 +1041,7 @@
                 "name": "Milch",
                 "amount": 500,
                 "unit": "ml",
-                "type": "Milchprodukte"
+                "type": "Kühlung"
             },
             {                
                 "name": "Zucker",

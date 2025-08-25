@@ -94,7 +94,7 @@ const List = () => {
     return `${amount.toFixed(1)} ${unit}`;
   };
 
-  const typeOrder = ['Obst & Gemüse', 'Brot', 'Milchprodukte', 'Trocken', 'Tiefkühl', 'Other'];
+  const typeOrder = ['Obst & Gemüse', 'Brot', 'Kühlung', 'Trocken', 'Tiefkühl', 'Other'];
   const sortedTypes = Object.keys(shoppingList).sort((a, b) => {
     const indexA = typeOrder.indexOf(a);
     const indexB = typeOrder.indexOf(b);

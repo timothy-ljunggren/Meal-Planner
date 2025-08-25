@@ -22,7 +22,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-xl font-display font-bold text-gradient-primary">Food Planner</h1>
+                  <h1 className="text-xl font-display font-bold text-gradient-primary">Meal Planner</h1>
                   <p className="text-xs text-text-500 font-medium">Plan • Cook • Enjoy</p>
                 </div>
               </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-xl font-display font-bold text-gradient-primary">Food Planner</h1>
+                  <h1 className="text-xl font-display font-bold text-gradient-primary">Meal Planner</h1>
                   <p className="text-xs text-text-500 font-medium">Plan • Cook • Enjoy</p>
                 </div>
               </div>
