@@ -1,8 +1,51 @@
-import { Clock, Users } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Clock, Users, Heart } from 'lucide-react';
 
 const MealCard = ({ meal }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  // Check if meal is liked on component mount
+  useEffect(() => {
+    const likedMeals = JSON.parse(localStorage.getItem('likedMeals') || '[]');
+    setIsLiked(likedMeals.includes(meal.name));
+  }, [meal.name]);
+
+  const handleLikeToggle = (e) => {
+    e.stopPropagation(); // Prevent card click if there's a parent click handler
+    
+    const likedMeals = JSON.parse(localStorage.getItem('likedMeals') || '[]');
+    let updatedLikedMeals;
+    
+    if (isLiked) {
+      // Remove from liked meals
+      updatedLikedMeals = likedMeals.filter(mealName => mealName !== meal.name);
+    } else {
+      // Add to liked meals
+      updatedLikedMeals = [...likedMeals, meal.name];
+    }
+    
+    localStorage.setItem('likedMeals', JSON.stringify(updatedLikedMeals));
+    setIsLiked(!isLiked);
+  };
+
   return (
     <div className="group card-interactive bg-white overflow-hidden relative">
+      {/* Like button */}
+      <button
+        onClick={handleLikeToggle}
+        className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+          isLiked 
+            ? 'bg-red-500 hover:bg-red-600 text-white shadow-lg' 
+            : 'bg-white/90 hover:bg-white text-gray-400 hover:text-red-500 shadow-md'
+        } backdrop-blur-sm`}
+      >
+        <Heart 
+          className={`w-4 h-4 transition-all duration-200 ${
+            isLiked ? 'fill-current' : ''
+          }`} 
+        />
+      </button>
+
       {/* Card Header with gradient overlay */}
       <div className="relative h-32 bg-gradient-to-br from-primary-100 via-primary-50 to-secondary-50 flex items-center justify-center">
         {/* Food emoji or placeholder */}
