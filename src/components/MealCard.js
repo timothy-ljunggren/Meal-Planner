@@ -1,37 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Heart, Clock, Users } from 'lucide-react';
+import { Clock, Users } from 'lucide-react';
 
 const MealCard = ({ meal }) => {
-  const [isLiked, setIsLiked] = useState(false);
-
-  // Load like state from localStorage on mount
-  useEffect(() => {
-    const likedMeals = JSON.parse(localStorage.getItem('likedMeals') || '[]');
-    setIsLiked(likedMeals.includes(meal.name));
-  }, [meal.name]);
-
-  const handleLikeToggle = (e) => {
-    e.stopPropagation();
-    const likedMeals = JSON.parse(localStorage.getItem('likedMeals') || '[]');
-    
-    if (isLiked) {
-      // Remove from liked meals
-      const updatedLikes = likedMeals.filter(name => name !== meal.name);
-      localStorage.setItem('likedMeals', JSON.stringify(updatedLikes));
-      setIsLiked(false);
-    } else {
-      // Add to liked meals
-      const updatedLikes = [...likedMeals, meal.name];
-      localStorage.setItem('likedMeals', JSON.stringify(updatedLikes));
-      setIsLiked(true);
-    }
-    
-    // Small haptic feedback simulation
-    if ('vibrate' in navigator) {
-      navigator.vibrate(50);
-    }
-  };
-
   return (
     <div className="group card-interactive bg-white overflow-hidden relative">
       {/* Card Header with gradient overlay */}
@@ -40,18 +9,6 @@ const MealCard = ({ meal }) => {
         <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
           {meal.emoji || '🍽️'}
         </div>
-        
-        {/* Like button */}
-        <button
-          onClick={handleLikeToggle}
-          className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-all duration-200 ${
-            isLiked 
-              ? 'bg-error-500 text-white shadow-lg scale-110' 
-              : 'bg-white/80 text-text-400 hover:text-error-500 hover:bg-white'
-          }`}
-        >
-          <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
-        </button>
         
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">

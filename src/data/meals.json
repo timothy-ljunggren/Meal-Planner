@@ -75,13 +75,13 @@
                 "name": "Tomaten",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Avocado",
                 "amount": 150,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Mozzarella",
@@ -151,7 +151,7 @@
                 "name": "Salz",
                 "amount": 5,
                 "unit": "g",
-                "type":"Trocken"
+                "type": "Trocken"
             },
             {                
                 "name": "Pfeffer",
@@ -163,6 +163,11 @@
     },
     {
         "name": "Nudeln mit Tomaten-Sahne-Sauce",
+        "emoji": "🍝",
+        "cookTime": "20 min",
+        "servings": "4",
+        "difficulty": 1,
+        "tags": ["Pasta", "Comfort Food"],
         "ingredients": [
             {                
                 "name": "Nudeln",
@@ -186,19 +191,19 @@
                 "name": "Zwiebel",
                 "amount": 100,
                 "unit": "g",
-                "type": "Trocken"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Knoblauch",
                 "amount": 10,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Olivenöl",
                 "amount": 30,
                 "unit": "ml",
-                "type":"Trocken"
+                "type": "Trocken"
             },
             {
                 "name": "Salz",
@@ -216,6 +221,11 @@
     },
     {
         "name": "Burger mit Pommes",
+        "emoji": "🍔",
+        "cookTime": "30 min",
+        "servings": "4",
+        "difficulty": 2,
+        "tags": ["Comfort Food", "American"],
         "ingredients": [
             {               
                 "name": "Burgerbrötchen",
@@ -227,7 +237,7 @@
                 "name": "Burgerpatties",
                 "amount": 4,
                 "unit": "Stück",
-                "type": "Brot"
+                "type": "Milchprodukte"
             },
             {               
                 "name": "Käse",
@@ -245,7 +255,7 @@
                 "name": "Tomaten",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Zwiebel",
@@ -293,18 +303,23 @@
                 "name": "Paprika",
                 "amount": 2,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             }
         ]
     },
     {
         "name": "Bratkartoffeln mit Rührei",
+        "emoji": "🥔",
+        "cookTime": "25 min",
+        "servings": "2",
+        "difficulty": 1,
+        "tags": ["German", "Comfort Food", "Quick"],
         "ingredients": [
             {                
                 "name": "Kartoffeln",
                 "amount": 600,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Eier",
@@ -340,6 +355,11 @@
     },
     {
         "name": "Wraps",
+        "emoji": "🌯",
+        "cookTime": "15 min",
+        "servings": "3",
+        "difficulty": 1,
+        "tags": ["Quick", "Vegetarian", "Light"],
         "ingredients": [
             {
                 "name": "Wraps",
@@ -351,25 +371,25 @@
                 "name": "Fleischersatzprodukt",
                 "amount": 200,
                 "unit": "g",
-                "type":"Milchprodukte"
+                "type": "Milchprodukte"
             },
             {
                 "name": "Salat",
                 "amount": 100,
                 "unit": "g",
-                "type": "Trocken"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Tomaten",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Gurke",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Joghurt",
@@ -399,6 +419,11 @@
     },
     {
         "name": "Lasagne",
+        "emoji": "🍝",
+        "cookTime": "60 min",
+        "servings": "6",
+        "difficulty": 3,
+        "tags": ["Italian", "Comfort Food", "Vegetarian"],
         "ingredients": [
             {                
                 "name": "Lasagneplatten",
@@ -464,6 +489,11 @@
     },
     {
         "name": "Chickpea Curry mit Reis",
+        "emoji": "🍛",
+        "cookTime": "30 min",
+        "servings": "4",
+        "difficulty": 2,
+        "tags": ["Indian", "Vegetarian", "Healthy"],
         "ingredients": [
             {
                 "name": "Kichererbsen",
@@ -499,7 +529,7 @@
                 "name": "Ingwer",
                 "amount": 10,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Currypulver",
@@ -523,6 +553,11 @@
     },
     {
         "name": "Fladenbrot mit Tomate und Käse",
+        "emoji": "🍞",
+        "cookTime": "15 min",
+        "servings": "2",
+        "difficulty": 1,
+        "tags": ["Quick", "Vegetarian", "Light"],
         "ingredients": [
             {                
                 "name": "Fladenbrot",
@@ -546,7 +581,7 @@
                 "name": "Olivenöl",
                 "amount": 30,
                 "unit": "ml",
-                "type":"Trocken"
+                "type": "Trocken"
             },
             {                
                 "name": "Salz",
@@ -564,6 +599,11 @@
     },
     {
         "name": "Nudeln mit Brokkoli und Sahnesauce",
+        "emoji": "🥦",
+        "cookTime": "20 min",
+        "servings": "4",
+        "difficulty": 1,
+        "tags": ["Pasta", "Vegetarian", "Healthy"],
         "ingredients": [
             {
                 "name": "Nudeln",
@@ -617,6 +657,11 @@
     },
     {
         "name": "Mit Ei angebratene gefüllte Wraps",
+        "emoji": "🌯",
+        "cookTime": "20 min",
+        "servings": "2",
+        "difficulty": 2,
+        "tags": ["Quick", "Vegetarian"],
         "ingredients": [
             {
                 "name": "Wraps",
@@ -652,7 +697,7 @@
                 "name": "Gurke",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Olivenöl",
@@ -676,6 +721,11 @@
     },
     {
         "name": "Asia-Pfanne mit Brokkoli und Hähnchen",
+        "emoji": "🥢",
+        "cookTime": "25 min",
+        "servings": "4",
+        "difficulty": 2,
+        "tags": ["Asian", "Vegetarian", "Healthy"],
         "ingredients": [
             {
                 "name": "Spaghetti",
@@ -687,7 +737,7 @@
                 "name": "Hähnchen Ersatzprodukt",
                 "amount": 400,
                 "unit": "g",
-                "type":"Milchprodukte"
+                "type": "Milchprodukte"
             },
             {
                 "name": "Brokkoli",
@@ -699,13 +749,13 @@
                 "name": "Paprika",
                 "amount": 200,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Zwiebel",
                 "amount": 100,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Sojasauce",
@@ -717,13 +767,13 @@
                 "name": "Ingwer",
                 "amount": 10,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Knoblauch",
                 "amount": 10,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {                
                 "name": "Sesamöl",
@@ -747,6 +797,11 @@
     },
     {
         "name": "Sommerrollen mit Erdnussdip",
+        "emoji": "🥗",
+        "cookTime": "30 min",
+        "servings": "2",
+        "difficulty": 2,
+        "tags": ["Asian", "Vegetarian", "Healthy"],
         "ingredients": [
             {
                 "name": "Reispapier",
@@ -842,6 +897,11 @@
     },
     {
         "name": "Korean Pancakes",
+        "emoji": "🥞",
+        "cookTime": "15 min",
+        "servings": "2",
+        "difficulty": 1,
+        "tags": ["Korean", "Quick", "Vegetarian"],
         "ingredients": [
             {
                 "name": "Mehl",
@@ -859,7 +919,7 @@
                 "name": "Karotten",
                 "amount": 100,
                 "unit": "g",
-                "type":"Obst & Gemüse"
+                "type": "Obst & Gemüse"
             },
             {
                 "name": "Ei",
@@ -894,72 +954,82 @@
         ]
     },
     {
-            "name": "Quinoa-Salat",
-            "ingredients": [
-                {
-                    "name": "Quinoa",
-                    "amount": 200,
-                    "unit": "g",
-                    "type": "Trocken"
-                },
-                {
-                    "name": "Kidneybohnen",
-                    "amount": 200,
-                    "unit": "g",
-                    "type": "Trocken"
-                },
-                {
-                    "name": "Mais",
-                    "amount": 150,
-                    "unit": "g",
-                    "type": "Trocken"
-                },
-                {
-                    "name": "Cherry-Tomaten",
-                    "amount": 200,
-                    "unit": "g",
-                    "type": "Obst & Gemüse"
-                },
-                {
-                    "name": "Paprika",
-                    "amount": 150,
-                    "unit": "g",
-                    "type": "Obst & Gemüse"
-                },
-                {
-                    "name": "Gurke",
-                    "amount": 150,
-                    "unit": "g",
-                    "type": "Obst & Gemüse"
-                },
-                {
-                    "name": "Petersilie",
-                    "amount": 50,
-                    "unit": "g",
-                    "type":"Obst & Gemüse"
-                },
-                {
-                    "name": "Zitronensaft",
-                    "amount": 50,
-                    "unit": "ml",
-                    "type": "Trocken"
-                },
-                {
-                    "name": "Olivenöl",
-                    "amount": 30,
-                    "unit": "ml",
-                    "type": "Trocken"
-                },
-                {
-                    "name": "Salz",
-                    "amount": 5,
-                    "unit": "g",
-                    "type": "Trocken"
-                }
-            ]
+        "name": "Quinoa-Salat",
+        "emoji": "🥗",
+        "cookTime": "20 min",
+        "servings": "4",
+        "difficulty": 1,
+        "tags": ["Healthy", "Vegetarian", "Gluten-Free"],
+        "ingredients": [
+            {
+                "name": "Quinoa",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Kidneybohnen",
+                "amount": 200,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Mais",
+                "amount": 150,
+                "unit": "g",
+                "type": "Trocken"
+            },
+            {
+                "name": "Cherry-Tomaten",
+                "amount": 200,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Paprika",
+                "amount": 150,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Gurke",
+                "amount": 150,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Petersilie",
+                "amount": 50,
+                "unit": "g",
+                "type": "Obst & Gemüse"
+            },
+            {
+                "name": "Zitronensaft",
+                "amount": 50,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Olivenöl",
+                "amount": 30,
+                "unit": "ml",
+                "type": "Trocken"
+            },
+            {
+                "name": "Salz",
+                "amount": 5,
+                "unit": "g",
+                "type": "Trocken"
+            }
+        ]
     },
     {
         "name": "Grießschnitten",
+        "emoji": "🍮",
+        "cookTime": "25 min",
+        "servings": "4",
+        "difficulty": 1,
+        "tags": ["German", "Dessert", "Comfort Food"],
         "ingredients": [
             {
                 "name": "Grieß",
@@ -971,7 +1041,7 @@
                 "name": "Milch",
                 "amount": 500,
                 "unit": "ml",
-                "type": "Trocken"
+                "type": "Milchprodukte"
             },
             {                
                 "name": "Zucker",

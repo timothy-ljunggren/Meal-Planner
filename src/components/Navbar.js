@@ -93,7 +93,7 @@ const Navbar = () => {
             >
               {({ isActive }) => (
                 <>
-                  <div className={`relative flex items-center justify-center w-12 h-12 rounded-2xl mb-1 transition-all duration-300 ${
+                  <div className={`relative flex items-center justify-center w-12 h-8 rounded-2xl mb-2 transition-all duration-300 ${
                     isActive 
                       ? 'bg-primary-500 text-white shadow-glow transform scale-110' 
                       : 'bg-surface-100 text-text-500 hover:bg-surface-200 hover:scale-105'
