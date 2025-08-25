@@ -38,7 +38,7 @@ const Plan = () => {
     }
   }, [weeklyPlan]);
 
-  // Get random meal that's not already used in the current plan (prioritize liked meals)
+  // Get random meal that's not already used in the current plan (prioritize liked meals with variety)
   const getRandomUnusedMeal = (excludeDay = null) => {
     const usedMeals = Object.entries(weeklyPlan)
       .filter(([day, meal]) => meal !== null && day !== excludeDay)
@@ -48,22 +48,23 @@ const Plan = () => {
     const likedMeals = JSON.parse(localStorage.getItem('likedMeals') || '[]');
     const likedMealObjects = availableMeals.filter(meal => likedMeals.includes(meal.name));
     
-    // Filter out used meals from liked meals
+    // Filter out used meals
     const unusedLikedMeals = likedMealObjects.filter(meal => !usedMeals.includes(meal.name));
+    const unusedAllMeals = availableMeals.filter(meal => !usedMeals.includes(meal.name));
     
-    // If we have unused liked meals, use them first
-    if (unusedLikedMeals.length > 0) {
+    // 70% chance to use liked meals (if available), 30% chance for variety when changing individual meals
+    const shouldUseLikedMeal = Math.random() < 0.7;
+    
+    if (unusedLikedMeals.length > 0 && shouldUseLikedMeal) {
+      return unusedLikedMeals[Math.floor(Math.random() * unusedLikedMeals.length)];
+    } else if (unusedAllMeals.length > 0) {
+      return unusedAllMeals[Math.floor(Math.random() * unusedAllMeals.length)];
+    } else if (unusedLikedMeals.length > 0) {
+      // Fallback to liked meals if no other options
       return unusedLikedMeals[Math.floor(Math.random() * unusedLikedMeals.length)];
     }
     
-    // Otherwise fall back to all unused meals
-    const unusedMeals = availableMeals.filter(meal => !usedMeals.includes(meal.name));
-    
-    if (unusedMeals.length === 0) {
-      return null; // No more unused meals available
-    }
-    
-    return unusedMeals[Math.floor(Math.random() * unusedMeals.length)];
+    return null; // No more unused meals available
   };
 
   // Create a full weekly plan with random meals (prioritize liked meals)
@@ -83,22 +84,28 @@ const Plan = () => {
     const likedMealObjects = availableMeals.filter(meal => likedMeals.includes(meal.name));
     
     for (const { name } of daysOfWeek) {
-      // Try liked meals first
       const unusedLikedMeals = likedMealObjects.filter(meal => !usedMeals.includes(meal.name));
+      const unusedAllMeals = availableMeals.filter(meal => !usedMeals.includes(meal.name));
       
-      if (unusedLikedMeals.length > 0) {
+      // 75% chance to use liked meals (if available), 25% chance for variety
+      // This ensures we still prioritize liked meals but add some freshness
+      const shouldUseLikedMeal = Math.random() < 0.75;
+      
+      if (unusedLikedMeals.length > 0 && shouldUseLikedMeal) {
+        // Use a liked meal
         const randomMeal = unusedLikedMeals[Math.floor(Math.random() * unusedLikedMeals.length)];
         newPlan[name] = randomMeal;
         usedMeals.push(randomMeal.name);
-      } else {
-        // Fall back to all meals if no more liked meals
-        const unusedMeals = availableMeals.filter(meal => !usedMeals.includes(meal.name));
-        
-        if (unusedMeals.length > 0) {
-          const randomMeal = unusedMeals[Math.floor(Math.random() * unusedMeals.length)];
-          newPlan[name] = randomMeal;
-          usedMeals.push(randomMeal.name);
-        }
+      } else if (unusedAllMeals.length > 0) {
+        // Use any available meal for variety
+        const randomMeal = unusedAllMeals[Math.floor(Math.random() * unusedAllMeals.length)];
+        newPlan[name] = randomMeal;
+        usedMeals.push(randomMeal.name);
+      } else if (unusedLikedMeals.length > 0) {
+        // Fallback to liked meals if no other options
+        const randomMeal = unusedLikedMeals[Math.floor(Math.random() * unusedLikedMeals.length)];
+        newPlan[name] = randomMeal;
+        usedMeals.push(randomMeal.name);
       }
     }
     
